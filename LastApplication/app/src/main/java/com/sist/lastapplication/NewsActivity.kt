@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.AdapterView
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_news.*
@@ -23,7 +24,19 @@ class NewsActivity : AppCompatActivity() {
 
         news_btn.setOnClickListener {
             val fd=news_editView.text
+            dataList.clear()
             fetchJsonData().execute(fd.toString())
+        }
+
+        // Item click listener
+        news_listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            var link=dataList.get(position).get("link")
+
+            // 데이터 넘기기
+            var intent=Intent(this,NewsDetailActivity::class.java)
+            intent.putExtra("link",link.toString())
+            // 화면이동
+            startActivity(intent)
         }
     }
 
@@ -50,6 +63,7 @@ class NewsActivity : AppCompatActivity() {
                 map["title"] = singleUser.getString("title")
                 map["content"] = singleUser.getString("description")
                 map["author"] = singleUser.getString("author")
+                map["link"] = singleUser.getString("link")
                 dataList.add(map)
             }
 

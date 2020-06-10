@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import kotlinx.android.synthetic.main.activity_cate_food.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.home_item.*
 import org.json.JSONObject
@@ -20,8 +21,8 @@ class CateFoodActivity : AppCompatActivity() {
         val title=intent.getStringExtra("title")
         val subject=intent.getStringExtra("subject")
         //val titleTextView=findViewById<TextView>(R.id.cateTitleText)
-        titleTextView.text=title
-        subjectTextView.text=subject
+        cate_TitleText.text=title
+        cate_SubjectText.text=subject
 
         fetchJsonData().execute(cateno)
     }

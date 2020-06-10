@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CateFoodActivity"
-            android:parentActivityName=".HomeActivity">
-        </activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:parentActivityName=".NewsActivity"></activity>
+        <activity
+            android:name=".CateFoodActivity"
+            android:parentActivityName=".HomeActivity"></activity>
         <activity android:name=".NewsActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".RecommendActivity" />
