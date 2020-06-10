@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sist.lastapplication">
+    <!-- 인터넷,네트워크 연결 (서버 연결을 할 수 있는 권한 얻기) -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".CateFoodActivity"
+            android:parentActivityName=".HomeActivity">
+        </activity>
+        <activity android:name=".NewsActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".RecommendActivity" />
         <activity android:name=".PopActivity" />
@@ -22,8 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <!-- 인터넷,네트워크 연결 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
